@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_food_items"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.kev00_000.kitchenhero.FoodItems">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_below="@+id/spinner"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="19dp"
+                android:id="@+id/F1"
+                android:layout_alignParentEnd="true"
+                android:hint="FoodItem1" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions|number"
+                android:ems="10"
+                android:layout_below="@+id/F1"
+                android:layout_alignParentStart="true"
+                android:id="@+id/M1"
+                android:hint="TIme in Minutes" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_below="@+id/M1"
+                android:layout_marginTop="46dp"
+                android:id="@+id/F2"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:hint="FoodItem2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/M2"
+                android:layout_below="@+id/F2"
+                android:layout_alignParentStart="true"
+                android:hint="Time in Minutes" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_below="@+id/M2"
+                android:layout_marginTop="42dp"
+                android:id="@+id/F3"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:hint="FoodItem3" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/F4"
+                android:layout_alignParentStart="true"
+                android:id="@+id/M3"
+                android:hint="Time in Minutes"
+                android:layout_weight="0.48" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_below="@+id/M2"
+                android:layout_marginTop="42dp"
+                android:id="@+id/F4"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:hint="FoodItem4" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/F4"
+                android:layout_alignParentStart="true"
+                android:id="@+id/M4"
+                android:hint="Time in Minutes"
+                android:layout_weight="0.48" />
+
+            <Button
+                android:text="Set Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TimeBtn" />
+
+            <Button
+                android:text="Continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button1" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
