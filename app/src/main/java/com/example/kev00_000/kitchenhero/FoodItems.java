@@ -18,8 +18,11 @@ import java.util.Calendar;
 
 public class FoodItems extends AppCompatActivity {
 
-    private int h=0,m=0;                                           //hours and minutes to be saved
+    //Hours, minutes and alarm ids
+    private int h=0,m=0,Alarmnum=0;
     static final int DIALOG_ID = 0;
+
+    //name of food to be passed
     private String name;
 
     @Override
@@ -27,11 +30,14 @@ public class FoodItems extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_items);
 
+        //Continue Button
+        Button btn = (Button) findViewById(R.id.button1);
 
-        Button btn = (Button) findViewById(R.id.button1);       //Continue Button
-        Button Timebtn = (Button) findViewById(R.id.TimeBtn);   //Button for time picked
+        //Button for time picked
+        Button Timebtn = (Button) findViewById(R.id.TimeBtn);
 
-        final EditText F1, F2, F3, F4, M1, M2, M3, M4;                     //establish all EditText boxes
+        //establish all EditText boxes
+        final EditText F1, F2, F3, F4, M1, M2, M3, M4;
         F1 = (EditText) findViewById(R.id.F1);
         F2 = (EditText) findViewById(R.id.F2);
         F3 = (EditText) findViewById(R.id.F3);
@@ -41,28 +47,35 @@ public class FoodItems extends AppCompatActivity {
         M3 = (EditText) findViewById(R.id.M3);
         M4 = (EditText) findViewById(R.id.M4);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        //When Continue is pressed
+        btn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                     public void onClick(View v) {
 
 
+                        //If a time and name is entered for a food then create an alarm for it
                 if (F1.getText().length() != 0 && M1.getText().length() != 0) {
                     name=F1.getText().toString();
+                    Alarmnum=0;
                     onTimeSet(Integer.parseInt(M1.getText().toString()));
                 }
 
                 if (F2.getText().length() != 0 && M2.getText().length() != 0) {
-                    name=F1.getText().toString();
+                    name=F2.getText().toString();
+                    Alarmnum=1;
                     onTimeSet(Integer.parseInt(M1.getText().toString()));
                 }
 
                 if (F3.getText().length() != 0 && M3.getText().length() != 0) {
-                    name=F1.getText().toString();
+                    name=F3.getText().toString();
+                    Alarmnum=2;
                     onTimeSet(Integer.parseInt(M1.getText().toString()));
                 }
 
                 if (F4.getText().length() != 0 && M4.getText().length() != 0) {
-                    name=F1.getText().toString();
+                    name=F4.getText().toString();
+                    Alarmnum=3;
                     onTimeSet(Integer.parseInt(M1.getText().toString()));
                 }
 
@@ -83,6 +96,7 @@ public class FoodItems extends AppCompatActivity {
 
     }
 
+    //Hour and minute chosen from TimePicker stored and shown in toast
     private TimePickerDialog.OnTimeSetListener mTimeSetListener =
             new TimePickerDialog.OnTimeSetListener() {
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -93,6 +107,7 @@ public class FoodItems extends AppCompatActivity {
                 }
             };
 
+    //Creates the Timepicker pop up
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -103,6 +118,8 @@ public class FoodItems extends AppCompatActivity {
         return null;
     }
 
+
+    //Sets the hour and minutes picked to actual time and takes cooking time away
     public void onTimeSet(int i) {
         if(i>m)
         {
@@ -127,6 +144,8 @@ public class FoodItems extends AppCompatActivity {
         setAlarm(calSet);
     }
 
+
+        //Creates alarms
         private void setAlarm(Calendar targetCal){
 
         Toast.makeText(getApplicationContext(),
@@ -136,7 +155,7 @@ public class FoodItems extends AppCompatActivity {
 
         Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
         intent.putExtra("data",name);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),234324243,intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),Alarmnum,intent, 0);
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
 

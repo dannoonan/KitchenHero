@@ -10,23 +10,28 @@ public class MainScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Create the homepage
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
         // Locate the button in activity_main.xml
-        Button button = (Button) findViewById(R.id.button1);
+        Button button1 = (Button) findViewById(R.id.button1);
+        Button button2 = (Button) findViewById(R.id.button2);
 
         // Capture button clicks
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
+        button1.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View arg0) {
 
-                // Start NewActivity.class
-                Intent myIntent = new Intent(MainScreen.this,
-                        FoodItems.class);
-                startActivity(myIntent);
-            }
-        });
+                        // Start FoodItems.class
+                        Intent myIntent = new Intent(MainScreen.this,
+                                FoodItems.class);
+                        startActivity(myIntent);
+                    }
+                });
+
+
     }
-
 }
 
