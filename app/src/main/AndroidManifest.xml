@@ -15,11 +15,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FoodItems"></activity>
-        <receiver android:name=".AlarmReceiver" android:process=":remote" />
-        <receiver android:name=".StopAlarm" android:enabled="true" android:process=":remote" />
-        <service android:name="RingtonePlayingService" android:enabled="true" />
+        <activity android:name=".FoodItems" />
+
+        <receiver
+            android:name=".AlarmReceiver"
+            android:process=":remote" />
+        <receiver
+            android:name=".StopAlarm"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <service
+            android:name=".RingtonePlayingService"
+            android:enabled="true" />
+
         <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+        <activity android:name=".Recipes" />
+        <activity android:name=".AddRecipe" />
+        <activity android:name=".MyRecipes"></activity>
     </application>
 
 </manifest>

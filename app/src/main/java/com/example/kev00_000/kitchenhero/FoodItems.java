@@ -110,6 +110,9 @@ public class FoodItems extends AppCompatActivity {
     //Creates the Timepicker pop up
     @Override
     protected Dialog onCreateDialog(int id) {
+        Calendar c = Calendar.getInstance();
+        int h=c.get(Calendar.HOUR_OF_DAY);
+        int m=c.get(Calendar.MINUTE);
         switch (id) {
             case DIALOG_ID:
                 return new TimePickerDialog(this,
