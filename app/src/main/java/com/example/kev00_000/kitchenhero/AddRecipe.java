@@ -21,8 +21,8 @@ public class AddRecipe extends AppCompatActivity {
         final EditText Ingredients = (EditText) findViewById(R.id.Ingredients);
         final EditText Method = (EditText) findViewById(R.id.Method);
 
-        final SQLiteDatabase db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS student(rollno VARCHAR,name VARCHAR,marks VARCHAR);");
+        final SQLiteDatabase db = openOrCreateDatabase("RecipesTable", Context.MODE_PRIVATE, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS student(Title VARCHAR,Ingredients VARCHAR,Method VARCHAR);");
 
         Button Add=(Button)findViewById(R.id.Add);
 
